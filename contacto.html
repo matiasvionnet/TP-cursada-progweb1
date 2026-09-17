@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Observar</title>
+
+    <link rel="stylesheet" href="recursos/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                OBSERVAR
+                <span>desde otro punto de vista</span>
+            </a>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="galeria.html">Galería</a>
+                </li>
+
+                <li>
+                    <a href="index.html#sobre-mi">
+                        Sobre mí
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main class="pagina-contacto">
+
+        <section class="contacto">
+
+            <div class="contacto-texto">
+
+                <p class="etiqueta">
+                    01 / CONTACTO
+                </p>
+
+                <h1>
+                    ¿Tenés un proyecto en mente?
+                </h1>
+
+                <p>
+                    Si querés conocer más sobre mi trabajo
+                    o realizar una consulta, podés
+                    contactarme mediante el siguiente formulario.
+                </p>
+
+
+                <div class="datos-contacto">
+
+                    <p>
+                        <strong>Instagram</strong>
+                        @matias_vionnet
+                    </p>
+
+                    <p>
+                        <strong>Email</strong>
+                        matias.vionnet@gmail.com
+                    </p>
+
+                    <p>
+                        <strong>Teléfono</strong>
+                        +54 9 11 3818-8402
+                    </p>
+
+                </div>
+
+            </div>
+
+            <form class="formulario">
+
+                <div class="campo">
+
+                    <label for="nombre">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="tu@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="telefono">
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="+54 9 11..."
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="asunto">
+                        Asunto
+                    </label>
+
+                    <select
+                        id="asunto"
+                        name="asunto"
+                        required>
+
+                        <option value="">
+                            Seleccioná una opción
+                        </option>
+
+                        <option value="consulta">
+                            Consulta
+                        </option>
+
+                        <option value="fotografia">
+                            Fotografía
+                        </option>
+
+                        <option value="proyecto">
+                            Proyecto
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="mensaje">
+                        Mensaje
+                    </label>
+
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        placeholder="Escribí tu mensaje..."
+                        required>
+                    </textarea>
+
+                </div>
+
+
+                <button type="submit">
+                    Enviar
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>Charlemos</span>
+
+        <div class="contacto-footer">
+
+            <a href="#">Instagram</a>
+            <a href="mailto:matias.vionnet@gmail.com">Email</a>
+            <a href="tel:+541138188402">Teléfono</a>
+
+        </div>
+
+        <span>
+            © 2026 Observar
+        </span>
+
+    </footer>
+
+</body>
+
+</html>

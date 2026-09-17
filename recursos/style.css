@@ -1,0 +1,27 @@
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 280px);
+    justify-content: center;
+    gap: 25px;
+}
+
+.categoria img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.foto_autor img {
+    width: 350px;
+    max-width: 280px;
+}
+
+.foto_vertical img{
+    width: 250px;
+    height: 350px;
+}
+
+.foto_horizontal img{
+    width: 350px;
+    height: 250px;
+}
