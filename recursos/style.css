@@ -96,7 +96,7 @@ header {
             rgba(0,0,0,0.55),
             rgba(0,0,0,0.65)
         ),
-        url("../imagenes/automoviles/automovil1.jpg");
+        url("../imagenes/autor/cba\ \(4\ de\ 5\).jpg");
 
     background-size: cover;
     background-position: center;
@@ -135,15 +135,6 @@ header {
     letter-spacing: 2px;
 }
 
-.scroll {
-    display: inline-block;
-
-    margin-top: 100px;
-
-    font-size: 11px;
-    letter-spacing: 3px;
-}
-
 
 /* =========================
    SECCIONES
@@ -170,14 +161,7 @@ header {
     align-items: center;
 }
 
-.foto-autor img {
-    width: 100%;
-    max-width: 450px;
-
-    filter: grayscale(100%);
-}
-
-.texto-sobre-mi h2 {
+.texto-sobremi h2 {
     margin: 30px 0;
 
     font-family: Georgia, serif;
@@ -185,7 +169,7 @@ header {
     font-weight: normal;
 }
 
-.texto-sobre-mi p {
+.texto-sobremi p {
     max-width: 500px;
 
     margin-bottom: 20px;
@@ -319,34 +303,6 @@ header {
     border-bottom: 1px solid #fff;
 }
 
-
-/* BUSCADOR */
-
-.busqueda {
-    margin-bottom: 40px;
-}
-
-.busqueda label {
-    display: block;
-
-    margin-bottom: 10px;
-
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-.busqueda input {
-    width: 100%;
-
-    padding: 15px;
-
-    background: none;
-    border: 1px solid #444;
-
-    color: white;
-}
-
-
 /* FOTOS */
 
 .galeria {
@@ -375,19 +331,9 @@ header {
     transform: scale(1.03);
 }
 
-.foto_autor img {
+.foto-autor img {
     width: 350px;
     max-width: 280px;
-}
-
-.foto_vertical img{
-    width: 250px;
-    height: 350px;
-}
-
-.foto_horizontal img{
-    width: 350px;
-    height: 250px;
 }
 
 
@@ -545,14 +491,12 @@ footer {
         gap: 50px;
     }
 
-    .texto-sobre-mi h2 {
+    .texto-sobremi h2 {
         font-size: 40px;
     }
 
     .categorias {
-        display: grid;
-        grid-template-columns: repeat(3, 280px);
-        justify-content: center;
+        grid-template-columns: 1fr;
         gap: 25px;
     }
 
@@ -590,19 +534,10 @@ footer {
         text-align: center;
     }
 
-    .foto_autor img {
-        width: 350px;
+    .foto-autor img {
+        width: 100%;
         max-width: 280px;
-    }
-
-    .foto_vertical img{
-        width: 250px;
-        height: 350px;
-    }
-
-    .foto_horizontal img{
-        width: 350px;
-        height: 250px;
+        height: auto;
     }
 }
 
