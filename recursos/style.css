@@ -1,7 +1,3 @@
-/* =========================
-   CONFIGURACIÓN GENERAL
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +11,7 @@ html {
 body {
     background-color: #111111;
     color: #e8e5df;
-    font-family: Arial, sans-serif;
+    font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
 a {
@@ -23,6 +19,22 @@ a {
     text-decoration: none;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Contenedor general: ancho máximo solicitado por la consigna */
+.hero-contenido,
+.sobre-mi,
+.trabajos,
+.pagina-galeria,
+.pagina-contacto {
+    width: 100%;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* =========================
    NAVEGACIÓN
@@ -31,48 +43,50 @@ a {
 header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-
-    background-color: rgba(17, 17, 17, 0.90);
+    background-color: rgba(17, 17, 17, 0.95);
     border-bottom: 1px solid #333333;
 }
 
 .navbar {
-    height: 80px;
-
+    width: 100%;
+    max-width: 960px;
+    min-height: 80px;
+    margin: 0 auto;
+    padding: 12px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 5%;
+    gap: 24px;
 }
 
 .logo {
-    font-family: Georgia, serif;
+    flex-shrink: 0;
+    font-family: "Shippori Mincho", serif;
     font-size: 22px;
 }
 
 .logo span {
     display: block;
-
     font-size: 11px;
     font-style: italic;
 }
 
-
 .menu {
     display: flex;
-    gap: 35px;
-
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
     list-style: none;
 }
 
 .menu a {
+    display: block;
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-
+    letter-spacing: 1.5px;
     transition: opacity 0.3s;
 }
 
@@ -80,33 +94,24 @@ header {
     opacity: 0.5;
 }
 
-
 /* =========================
-   HERO
+   PORTADA / HERO
 ========================= */
 
 .hero {
-    height: 100vh;
-
+    min-height: 100vh;
     display: flex;
     align-items: center;
-
+    padding: 100px 24px 60px;
     background-image:
-        linear-gradient(
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.65)
-        ),
-        url("../imagenes/autor/cba\ \(4\ de\ 5\).jpg");
-
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+        url("../imagenes/autor/cba\ (4 de 5).jpg");
     background-size: cover;
     background-position: center;
 }
 
 .hero-contenido {
-    width: 90%;
-    max-width: 1200px;
-
-    margin: auto;
+    padding: 0 24px;
 }
 
 .numero,
@@ -118,15 +123,13 @@ header {
 
 .hero h1 {
     margin: 25px 0;
-
-    font-family: Georgia, serif;
-    font-size: clamp(50px, 8vw, 110px);
+    font-family: "Shippori Mincho", serif;
+    font-size: clamp(50px, 8vw, 100px);
     font-weight: normal;
 }
 
 .hero h1 span {
     display: block;
-
     font-size: 0.45em;
     font-style: italic;
 }
@@ -135,89 +138,84 @@ header {
     letter-spacing: 2px;
 }
 
-
 /* =========================
-   SECCIONES
+   SECCIONES GENERALES
 ========================= */
 
 .sobre-mi,
 .trabajos {
-    max-width: 1200px;
-
-    margin: auto;
-    padding: 150px 5%;
+    padding: 110px 24px;
 }
 
-
-/* =========================
-   SOBRE MÍ
-========================= */
-
+/* Flexbox reemplaza la grilla de dos columnas */
 .sobre-mi {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 56px;
+}
+
+.foto-autor,
+.texto-sobremi {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.foto-autor img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
 }
 
 .texto-sobremi h2 {
-    margin: 30px 0;
-
-    font-family: Georgia, serif;
-    font-size: 50px;
+    margin: 25px 0;
+    font-family: "Shippori Mincho", serif;
+    font-size: 46px;
     font-weight: normal;
 }
 
-.texto-sobremi p {
+.texto-sobremi p:not(.etiqueta) {
     max-width: 500px;
-
-    margin-bottom: 20px;
-
+    margin-bottom: 18px;
     line-height: 1.8;
     color: #aaa;
 }
-
 
 /* =========================
    CATEGORÍAS
 ========================= */
 
 .titulo-seccion {
-    margin-bottom: 60px;
+    margin-bottom: 45px;
 }
 
 .titulo-seccion h2 {
     margin-top: 20px;
-
-    font-family: Georgia, serif;
-    font-size: 55px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 52px;
     font-weight: normal;
 }
 
 .categorias {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
 }
 
 .categoria {
     position: relative;
+    flex: 1 1 0;
+    min-width: 0;
     overflow: hidden;
 }
 
 .categoria img {
     width: 100%;
-    height: 400px;
-
+    height: 340px;
     object-fit: cover;
-
     filter: brightness(0.65);
-
-    transition:
-        transform 0.5s,
-        filter 0.5s;
+    transition: transform 0.5s, filter 0.5s;
 }
 
 .categoria:hover img {
@@ -227,103 +225,87 @@ header {
 
 .categoria-info {
     position: absolute;
-
-    left: 25px;
-    bottom: 25px;
+    left: 18px;
+    right: 12px;
+    bottom: 22px;
 }
 
 .categoria-info h3 {
-    font-family: Georgia, serif;
-    font-size: 28px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 26px;
     font-weight: normal;
 }
 
 .categoria-info a {
     display: block;
-
     margin-top: 10px;
-
     font-size: 11px;
     letter-spacing: 2px;
 }
-
 
 /* =========================
    GALERÍA
 ========================= */
 
-.pagina-galeria {
-    max-width: 1200px;
-
-    margin: auto;
-    padding: 150px 5%;
+.pagina-galeria,
+.pagina-contacto {
+    padding: 145px 24px 90px;
 }
 
 .encabezado-galeria h1 {
     margin: 20px 0;
-
-    font-family: Georgia, serif;
-    font-size: 70px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 66px;
     font-weight: normal;
 }
 
 .encabezado-galeria > p:last-child {
     color: #999;
+    line-height: 1.7;
 }
-
-
-/* FILTROS */
 
 .filtros {
     display: flex;
-    gap: 30px;
-
-    margin: 70px 0 30px;
-
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin: 55px 0 28px;
     border-bottom: 1px solid #333;
 }
 
 .filtro {
     padding: 15px 0;
-
     border: none;
+    border-bottom: 1px solid transparent;
     background: none;
-
     color: #999;
-
     cursor: pointer;
-
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
 .filtro.activo {
     color: #fff;
-
-    border-bottom: 1px solid #fff;
+    border-bottom-color: #fff;
 }
 
-/* FOTOS */
-
+/* Flexbox para distribuir las fotos en filas adaptables */
 .galeria {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
 .foto {
+    flex: 1 1 calc(33.333% - 15px);
+    min-width: 0;
     overflow: hidden;
 }
 
 .foto img {
     width: 100%;
-    height: 400px;
-
+    height: 340px;
     object-fit: cover;
-
     transition: transform 0.5s;
 }
 
@@ -331,77 +313,57 @@ header {
     transform: scale(1.03);
 }
 
-.foto-autor img {
-    width: 350px;
-    max-width: 280px;
-}
-
-
 /* =========================
    CONTACTO
 ========================= */
 
-.pagina-contacto {
-    max-width: 1200px;
-
-    margin: auto;
-    padding: 150px 5%;
+.contacto {
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
 }
 
-.contacto {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 100px;
+.contacto-texto,
+.formulario {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .contacto-texto h1 {
     margin: 25px 0;
-
-    font-family: Georgia, serif;
-    font-size: 65px;
+    font-family: "Shippori Mincho", serif;
+    font-size: 62px;
     font-weight: normal;
 }
 
 .contacto-texto > p {
     max-width: 500px;
-
     color: #aaa;
     line-height: 1.8;
 }
 
 .datos-contacto {
-    margin-top: 70px;
+    margin-top: 55px;
 }
 
 .datos-contacto p {
     margin-bottom: 25px;
-
     color: #aaa;
 }
 
 .datos-contacto strong {
     display: block;
-
     margin-bottom: 5px;
-
     color: white;
 }
 
-
-/* FORMULARIO */
-
 .campo {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .campo label {
     display: block;
-
     margin-bottom: 8px;
-
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -411,133 +373,253 @@ header {
 .campo select,
 .campo textarea {
     width: 100%;
-
     padding: 15px;
-
     background: transparent;
-
     border: 1px solid #444;
-
     color: white;
+    font: inherit;
+}
+
+.campo select option {
+    background: #111;
 }
 
 .campo textarea {
-    height: 150px;
-
+    min-height: 150px;
     resize: vertical;
 }
 
 .formulario button {
     width: 100%;
-
     padding: 16px;
-
     background: white;
     color: #111;
-
     border: none;
-
     text-transform: uppercase;
     letter-spacing: 2px;
-
     cursor: pointer;
 }
 
-
 /* =========================
-   FOOTER
+   PIE DE PÁGINA
 ========================= */
 
 footer {
+    width: 100%;
     display: flex;
-
-    justify-content: space-between;
     align-items: center;
-
-    padding: 30px 5%;
-
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px max(24px, calc((100% - 912px) / 2));
     border-top: 1px solid #333;
-
     font-size: 11px;
     color: #888;
 }
 
 .contacto-footer {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-
 /* =========================
-   MOBILE
+   TABLET: 720 PX O MENOS
 ========================= */
 
-@media (max-width: 768px) {
-
+@media (max-width: 720px) {
     .navbar {
-        height: 70px;
+        min-height: 72px;
+        padding: 12px 20px;
+        gap: 16px;
     }
 
     .menu {
-        display: none;
+        gap: 14px;
     }
 
-    .hero h1 {
-        font-size: 55px;
+    .menu a {
+        font-size: 10px;
+        letter-spacing: 1px;
     }
 
     .sobre-mi {
-        grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 32px;
     }
 
     .texto-sobremi h2 {
-        font-size: 40px;
+        font-size: 38px;
     }
 
     .categorias {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .categoria {
+        flex: 1 1 calc(50% - 18px);
     }
 
     .categoria img {
-        width: 100%;
-        height: 280px;
-        object-fit: cover;
+        height: 300px;
     }
 
-    .galeria {
-        grid-template-columns: 1fr;
-    }
-
-    .encabezado-galeria h1 {
-        font-size: 50px;
-    }
-
-    .filtros {
-        flex-wrap: wrap;
-        gap: 20px;
+    .foto {
+        flex-basis: calc(50% - 15px);
     }
 
     .contacto {
-        grid-template-columns: 1fr;
-        gap: 60px;
+        flex-direction: column;
+        gap: 42px;
     }
 
-    .contacto-texto h1 {
-        font-size: 48px;
+    .contacto-texto,
+    .formulario {
+        width: 100%;
     }
 
     footer {
-        flex-direction: column;
-        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
         text-align: center;
+    }
+}
+
+/* =========================
+   SMARTPHONE: 480 PX O MENOS
+========================= */
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 18px;
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .menu {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #292929;
+    }
+
+    .menu a {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 90vh;
+        padding: 190px 18px 55px;
+    }
+
+    .hero-contenido {
+        padding: 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 12vw, 55px);
+    }
+
+    .hero p {
+        font-size: 12px;
+        line-height: 1.7;
+        letter-spacing: 1px;
+    }
+
+    .sobre-mi,
+    .trabajos {
+        padding: 75px 20px;
+    }
+
+    .sobre-mi {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
     }
 
     .foto-autor img {
         width: 100%;
-        max-width: 280px;
+        max-width: 100%;
         height: auto;
     }
-}
 
+    .texto-sobremi h2,
+    .titulo-seccion h2 {
+        font-size: 36px;
+    }
+
+    .categorias {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .categoria {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .categoria img {
+        height: 280px;
+    }
+
+    .pagina-galeria,
+    .pagina-contacto {
+        padding: 210px 20px 65px;
+    }
+
+    .encabezado-galeria h1 {
+        font-size: 44px;
+    }
+
+    .filtros {
+        gap: 8px 18px;
+        margin-top: 35px;
+    }
+
+    .filtro {
+        padding: 12px 0;
+        font-size: 11px;
+    }
+
+    .galeria {
+        flex-direction: column;
+    }
+
+    .foto {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .foto img {
+        height: auto;
+        max-height: 420px;
+    }
+
+    .contacto-texto h1 {
+        font-size: 42px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 16px;
+        padding: 25px 20px;
+    }
+
+    .contacto-footer {
+        gap: 16px;
+    }
+}
