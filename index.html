@@ -18,7 +18,13 @@
                 <span>desde otro punto de vista</span>
             </a>
             
-            <ul class="menu">
+            <button type="button" id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -55,7 +61,7 @@
                 </h2>
                 <p>
                     Soy un fotografo profesional buscandole otro punto de vista a la vida,
-                     utilizando la luz para expresar mis ideas.
+                    utilizando la luz para expresar mis ideas.
                 </p>
                 <p>
                     A través de la fotografía busco observar
@@ -82,7 +88,7 @@
                     <img src="imagenes/automoviles/JDM Meet sin marca (177 de 209).jpg" alt="Fotografia de automoviles">
                     <div class="categoria-info">
                         <h3>Automotive</h3>
-                        <a href="galeria.html">
+                        <a href="galeria.html?categoria=automoviles">
                             Ver galeria
                         </a>
                     </div>
@@ -91,7 +97,7 @@
                     <img src="imagenes/comida/Mafia (100 de 102).jpg" alt="Fotografia gastronómica">
                     <div class="categoria-info">
                         <h3>Food</h3>
-                        <a href="galeria.html">
+                        <a href="galeria.html?categoria=comida">
                             Ver galeria
                         </a>
                     </div>
@@ -100,7 +106,7 @@
                     <img src="imagenes/moda/Mai (102 de 106).jpg" alt="Fotografia de moda">
                     <div class="categoria-info">
                         <h3>Moda</h3>
-                        <a href="galeria.html">
+                        <a href="galeria.html?categoria=moda">
                             Ver galeria
                         </a>
                     </div>
@@ -119,5 +125,6 @@
             © 2026 Observar
         </div>
     </footer>
+    <script src="recursos/funciones.js"></script>
 </body>
 </html>

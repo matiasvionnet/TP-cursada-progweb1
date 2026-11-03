@@ -26,7 +26,13 @@
                 <span>desde otro punto de vista</span>
             </a>
 
-            <ul class="menu">
+            <button type="button" id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
 
                 <li>
                     <a href="index.html">Inicio</a>
@@ -97,7 +103,7 @@
 
             </div>
 
-            <form class="formulario">
+            <form class="formulario" novalidate>
 
                 <div class="campo">
 
@@ -110,6 +116,7 @@
                         id="nombre"
                         name="nombre"
                         placeholder="Tu nombre"
+                        minlength="2"
                         required
                     >
 
@@ -144,6 +151,7 @@
                         id="telefono"
                         name="telefono"
                         placeholder="+54 9 11..."
+                        pattern="[0-9+\s\(\)\-]{8,20}"
                         required
                     >
 
@@ -192,6 +200,7 @@
                         id="mensaje"
                         name="mensaje"
                         placeholder="Escribí tu mensaje..."
+                        minlength="10"
                         required></textarea>
 
                 </div>
@@ -200,6 +209,8 @@
                 <button type="submit">
                     Enviar
                 </button>
+
+                <p class="estado-formulario" id="estado-formulario" role="status" aria-live="polite"></p>
 
             </form>
 
@@ -226,6 +237,7 @@
 
     </footer>
 
+    <script src="recursos/funciones.js"></script>
 </body>
 
 </html>

@@ -94,6 +94,40 @@ header {
     opacity: 0.5;
 }
 
+/* Botón hamburguesa (oculto en escritorio, visible en móvil) */
+.btn-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: 1px solid #333333;
+    cursor: pointer;
+}
+
+.btn-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #e8e5df;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.btn-menu.activo span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.btn-menu.activo span:nth-child(2) {
+    opacity: 0;
+}
+
+.btn-menu.activo span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* =========================
    PORTADA / HERO
 ========================= */
@@ -289,6 +323,33 @@ header {
     border-bottom-color: #fff;
 }
 
+/* Buscador del catálogo */
+.buscador input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    font: inherit;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: #999;
+}
+
+.contador-resultados {
+    margin: 18px 0 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.sin-resultados {
+    padding: 40px 0;
+    color: #999;
+}
+
 /* Flexbox para distribuir las fotos en filas adaptables */
 .galeria {
     display: flex;
@@ -296,21 +357,25 @@ header {
     gap: 15px;
 }
 
+/* evita que la última fila se estire de más */
+.galeria::after {
+    content: "";
+    flex-grow: 10;
+}
+
 .foto {
-    flex: 1 1 calc(33.333% - 15px);
-    min-width: 0;
+    flex-grow: 1;
+    height: 300px;
     overflow: hidden;
 }
 
 .foto img {
-    width: 100%;
-    height: 340px;
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
-}
-
-.foto:hover img {
-    transform: scale(1.03);
 }
 
 /* =========================
@@ -389,6 +454,46 @@ header {
     resize: vertical;
 }
 
+/* Validación visual en tiempo real (clases aplicadas desde JS) */
+.campo input.campo-error,
+.campo select.campo-error,
+.campo textarea.campo-error {
+    border-color: #c0504d;
+    background: rgba(192, 80, 77, 0.15);
+}
+
+.campo input.campo-valido,
+.campo select.campo-valido,
+.campo textarea.campo-valido {
+    border-color: #6aa56a;
+    background: rgba(106, 165, 106, 0.12);
+}
+
+.mensaje-error {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #e28b88;
+}
+
+.mensaje-error:empty {
+    display: none;
+}
+
+.estado-formulario {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.estado-formulario.exito {
+    color: #8fc98f;
+}
+
+.estado-formulario.error {
+    color: #e28b88;
+}
+
 .formulario button {
     width: 100%;
     padding: 16px;
@@ -465,7 +570,7 @@ footer {
     }
 
     .foto {
-        flex-basis: calc(50% - 15px);
+        height: 220px;
     }
 
     .contacto {
@@ -491,23 +596,33 @@ footer {
 
 @media (max-width: 480px) {
     .navbar {
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
         padding: 12px 18px;
     }
 
     .logo {
-        text-align: center;
         font-size: 20px;
     }
 
+    .btn-menu {
+        display: flex;
+    }
+
+    /* El menú móvil arranca oculto y se despliega con la clase .activo */
     .menu {
+        display: none;
         width: 100%;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
+        margin-top: 12px;
+    }
+
+    .menu.activo {
+        display: flex;
     }
 
     .menu li {
@@ -523,7 +638,7 @@ footer {
 
     .hero {
         min-height: 90vh;
-        padding: 190px 18px 55px;
+        padding: 130px 18px 55px;
     }
 
     .hero-contenido {
@@ -578,7 +693,7 @@ footer {
 
     .pagina-galeria,
     .pagina-contacto {
-        padding: 210px 20px 65px;
+        padding: 130px 20px 65px;
     }
 
     .encabezado-galeria h1 {
@@ -599,12 +714,17 @@ footer {
         flex-direction: column;
     }
 
+    .galeria::after {
+        display: none;
+    }
+
     .foto {
-        flex: 1 1 auto;
+        height: auto;
         width: 100%;
     }
 
     .foto img {
+        width: 100%;
         height: auto;
         max-height: 420px;
     }

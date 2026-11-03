@@ -26,7 +26,13 @@
                 <span>desde otro punto de vista</span>
             </a>
 
-            <ul class="menu">
+            <button type="button" id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
 
                 <li>
                     <a href="index.html">Inicio</a>
@@ -103,68 +109,19 @@
 
         </section>
 
-        <section class="galeria">
+        <div class="buscador">
+            <input type="search" id="buscador" name="buscador"
+                   placeholder="Buscar por nombre o categoría..."
+                   aria-label="Buscar fotografías">
+        </div>
 
-            <article class="foto"
-                     data-categoria="automoviles"
-                     data-nombre="jdm">
+        <p class="contador-resultados" id="contador" aria-live="polite"></p>
 
-                <img src="imagenes/automoviles/JDM Meet sin marca (105 de 209).jpg"
-                     alt="Automóvil">
+        <section class="galeria" id="galeria"></section>
 
-            </article>
-
-
-            <article class="foto"
-                     data-categoria="automoviles"
-                     data-nombre="jdm">
-
-                <img src="imagenes/automoviles/JDM Meet sin marca (107 de 209).jpg"
-                     alt="Automóvil JDM">
-
-            </article>
-
-
-            <article class="foto"
-                     data-categoria="comida"
-                     data-nombre="gastronomia">
-
-                <img src="imagenes/comida/Mafia (100 de 102).jpg"
-                     alt="Fotografía gastronómica">
-
-            </article>
-
-
-            <article class="foto"
-                     data-categoria="comida"
-                     data-nombre="gastronomia">
-
-                <img src="imagenes/comida/Mafia (16 de 102).jpg"
-                     alt="Fotografía gastronómica">
-
-            </article>
-
-
-            <article class="foto"
-                     data-categoria="moda"
-                     data-nombre="moda">
-
-                <img src="imagenes/moda/Portfolio (48 de 167).jpg"
-                     alt="Fotografía de moda">
-
-            </article>
-
-
-            <article class="foto"
-                     data-categoria="moda"
-                     data-nombre="moda">
-
-                <img src="imagenes/moda/Mai (102 de 106).jpg"
-                     alt="Fotografía de moda">
-
-            </article>
-
-        </section>
+        <p class="sin-resultados" id="sin-resultados" hidden>
+            No se encontraron fotografías para tu búsqueda.
+        </p>
 
     </main>
 
@@ -186,6 +143,7 @@
         </span>
 
     </footer>
+    <script src="recursos/funciones.js"></script>
 </body>
 
 </html>
