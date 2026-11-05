@@ -4,6 +4,7 @@ function iniciar() {
     iniciarMenu();
     iniciarFormulario();
     iniciarGaleria();
+    iniciarTransiciones();
 }
 
 /* ==========================================================
@@ -261,4 +262,65 @@ function mostrarFotos() {
 
     contador.textContent = fotos.length === 1 ? '1 fotografía' : fotos.length + ' fotografías';
     sinResultados.hidden = fotos.length > 0;
+}
+
+/* ==========================================================
+   4. TRANSICIONES Y DESPLAZAMIENTO ENTRE PÁGINAS
+========================================================== */
+
+function iniciarTransiciones() {
+    var enlaces = document.querySelectorAll('a[href]');
+    for (var i = 0; i < enlaces.length; i++) {
+        enlaces[i].addEventListener('click', manejarEnlace);
+    }
+
+    // Si llegás con #sobre-mi desde otra página: arranca arriba y baja suave
+    if (window.location.hash) {
+        var destino = document.getElementById(window.location.hash.slice(1));
+        if (destino) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            setTimeout(function () {
+                destino.scrollIntoView({ behavior: 'smooth' });
+            }, 400);
+        }
+    }
+
+    // Al volver con el botón "atrás" la página no debe quedar en blanco
+    window.addEventListener('pageshow', function (evento) {
+        if (evento.persisted) {
+            document.body.classList.remove('saliendo');
+        }
+    });
+}
+
+function manejarEnlace(evento) {
+    var enlace = evento.currentTarget;
+    var url = new URL(enlace.href, window.location.href);
+
+    // No tocar enlaces externos, mailto, tel, nueva pestaña ni ctrl/cmd + click
+    if (url.protocol !== window.location.protocol ||
+        url.host !== window.location.host ||
+        enlace.target === '_blank' ||
+        evento.ctrlKey || evento.metaKey || evento.shiftKey) {
+        return;
+    }
+
+    evento.preventDefault();
+
+    // Mismo documento: desplazamiento suave, sin recargar
+    if (url.pathname === window.location.pathname) {
+        var destino = url.hash ? document.getElementById(url.hash.slice(1)) : null;
+        if (destino) {
+            destino.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return;
+    }
+
+    // Otra página: fundido de salida y recién después navega
+    document.body.classList.add('saliendo');
+    setTimeout(function () {
+        window.location.href = url.href;
+    }, 350);
 }

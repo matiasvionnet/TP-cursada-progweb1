@@ -5,7 +5,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 
 body {
@@ -133,6 +133,7 @@ header {
 ========================= */
 
 .hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -170,6 +171,41 @@ header {
 
 .hero p {
     letter-spacing: 2px;
+}
+
+.scroll-indicador {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999999;
+    transition: color 0.3s;
+}
+
+.scroll-indicador:hover {
+    color: #ffffff;
+}
+
+.scroll-indicador i {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(#ffffff, transparent);
+    animation: bajar 1.8s ease-in-out infinite;
+}
+
+@keyframes bajar {
+    0%     { transform: scaleY(0); transform-origin: top; }
+    50%    { transform: scaleY(1); transform-origin: top; }
+    50.01% { transform: scaleY(1); transform-origin: bottom; }
+    100%   { transform: scaleY(0); transform-origin: bottom; }
 }
 
 /* =========================
@@ -742,4 +778,28 @@ footer {
     .contacto-footer {
         gap: 16px;
     }
+}
+
+/* =========================
+   TRANSICIÓN ENTRE PÁGINAS
+========================= */
+
+body {
+    animation: entrada 0.5s ease;
+    transition: opacity 0.35s ease;
+}
+
+body.saliendo {
+    opacity: 0;
+}
+
+@keyframes entrada {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    body { animation: none; transition: none; }
+    .scroll-indicador i { animation: none; }
 }
